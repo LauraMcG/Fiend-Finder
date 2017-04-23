@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fiend Finder</title>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<h2>The Fiend Survey</h2>
+			<hr>
+			
+			<form class = "form-horizontal">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="url" class="form-control" placeholder="Name" id="name">
+				</div>
+						
+				<div class="form-group">
+					<label for="image">Link to photo</label>
+					<input type="text" class="form-control" placeholder ="Image URL" id="image">
+				</div>
+				<div class="form-group">
+					<label for="q1">Question 1</label>
+					<select class="form-control" id="q1">
+	  					<option value = "1">1</option>
+	  					<option value = "2">2</option>
+	 					<option value = "3">3</option>
+	  					<option value = "4">4</option>
+	 					<option value = "5">5</option>
+					</select>
+				</div>
+							
+				<button type="submit" class="btn btn-primary submit">Submit</button>
+			</form>
+
+		</div>
+
+		<div class="footer">
+			<div class="container">
+				<p><a href="/api/fiends">API Fiend List</a>
+			</div>
+		</div>
+
+	</div>
+
+
+</body>
+</html>
