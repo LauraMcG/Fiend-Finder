@@ -1,0 +1,25 @@
+{
+  "name": "fiend-finder",
+  "version": "1.0.0",
+  "description": "Arch nemesis matching application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LauraMcG/Fiend-Finder.git"
+  },
+  "author": "Laura McGinn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LauraMcG/Fiend-Finder/issues"
+  },
+  "homepage": "https://github.com/LauraMcG/Fiend-Finder#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "path": "^0.12.7"
+  }
+}
