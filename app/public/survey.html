@@ -26,16 +26,40 @@
 					<label for="image">Link to photo</label>
 					<input type="text" class="form-control" placeholder ="Image URL" id="image">
 				</div>
+
 				<div class="form-group">
-					<label for="q1">Question 1</label>
+					<label for="q1">You always initiate conversations.</label>
 					<select class="form-control" id="q1">
-	  					<option value = "1">1</option>
+	  					<option value = "1">1 - completely disagree</option>
 	  					<option value = "2">2</option>
 	 					<option value = "3">3</option>
 	  					<option value = "4">4</option>
-	 					<option value = "5">5</option>
+	 					<option value = "5">5 - completely agree</option>
 					</select>
 				</div>
+
+				<div class="form-group">
+					<label for="q2">You have thought about purchasing a katana.</label>
+					<select class="form-control" id="q2">
+	  					<option value = "1">1 - completely disagree</option>
+	  					<option value = "2">2</option>
+	 					<option value = "3">3</option>
+	  					<option value = "4">4</option>
+	 					<option value = "5">5 - completely agree</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="q3">You identify strongly with cats.</label>
+					<select class="form-control" id="q3">
+	  					<option value = "1">1 - completely disagree</option>
+	  					<option value = "2">2</option>
+	 					<option value = "3">3</option>
+	  					<option value = "4">4</option>
+	 					<option value = "5">5 - completely agree</option>
+					</select>
+				</div>
+
 							
 				<button type="submit" class="btn btn-primary submit">Submit</button>
 			</form>
@@ -49,6 +73,18 @@
 		</div>
 
 	</div>
+
+<script type="text/javascript">
+	$('.submit').on('click', function(event){
+		event.preventDefault();
+
+//validate the form
+
+		var newFiend = {
+
+		}
+	});
+</script>
 
 
 </body>

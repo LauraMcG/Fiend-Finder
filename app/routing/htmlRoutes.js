@@ -3,16 +3,14 @@ var path = require('path');
 
 var router = express.Router();
 
-var success = 'htmlRoutes successfully connected!';
-
 //middle ware
 router.use(function timeLog(req, res, next) {
 	// console.log('Time: ', Date.now());
   	next();
 });
 
-//USE to home.html -- displays homepage
-router.use('/', function(request, response) {
+//GET to home.html -- displays homepage
+router.get('/', function(request, response) {
   response.sendFile(path.join(__dirname, "../public/home.html"));
 });
 
@@ -22,8 +20,3 @@ router.get("/survey", function(request, response) {
 });
 
 module.exports = router;
-
-
-
-
-
