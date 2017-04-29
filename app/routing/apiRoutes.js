@@ -45,14 +45,19 @@ module.exports = function(app) {
 		//another loop within the first compares the user's survey response to those already stored.
 		//in other words, for each fiend, compare the results for each question.
 		for (var i = 0; i < fiends.length; i++) {
+			//resetting totalDifference for each iteration
+			totalDifference = 0;
 
 			for (var j = 0; j < newFiend.survey.length; j++) {
+
 				//finding the difference between each answer
 				var difference = Number(newFiend.survey[j]) - Number(fiends[i].survey[j]);
 				//getting the absolute value (Math.abs was giving me problems)
 				differencePosi = -difference>0 ? -difference : difference;
 				totalDifference = totalDifference + differencePosi;
 			}
+
+			console.log ('difference between you and ' + fiends[i].name + ' is ' + totalDifference);
 			//once the totalDifference has been calculated for a fiend, compare to yourEnemy
 			//yourEnemy is the fiend with the most difference from the user.
 			//if this is the new top enemy, update yourEnemy with their info.
@@ -63,6 +68,8 @@ module.exports = function(app) {
 					survey: fiends[i].survey,
 					score: totalDifference
 				};
+
+				console.log('Your current top enemy is now ' + fiends[i].name);
 			}
 		}
 
