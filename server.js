@@ -16,8 +16,8 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 //bringing in the other route files
-app.use(require('./app/routing/htmlRoutes'));
-// app.use(require('./app/routing/apiRoutes'));
+require('./app/routing/htmlRoutes')(app);
+require('./app/routing/apiRoutes')(app);
 
 //any necessary variables for collecting data will go here
 

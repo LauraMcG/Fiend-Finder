@@ -1,22 +1,20 @@
 var express = require('express');
 var path = require('path');
 
-var router = express.Router();
-
-//middle ware
-router.use(function timeLog(req, res, next) {
-	// console.log('Time: ', Date.now());
-  	next();
-});
+module.exports = function(app) {
 
 //GET to home.html -- displays homepage
-router.get('/', function(request, response) {
+app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname, "../public/home.html"));
 });
 
+app.use('/app/public/survey.js', function(request, response) {
+	response.sendFile(path.join(__dirname, "../public/survey.js"))
+});
+
 //GET to /survey -- displays survey page
-router.get("/survey", function(request, response) {
+app.get("/survey", function(request, response) {
   response.sendFile(path.join(__dirname, "../public/survey.html"));
 });
 
-module.exports = router;
+}

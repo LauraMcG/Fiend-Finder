@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fiend Finder</title>
 
-	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
 	
 </head>
 
@@ -19,12 +20,12 @@
 			<form class = "form-horizontal">
 				<div class="form-group">
 					<label for="name">Name</label>
-					<input type="url" class="form-control" placeholder="Name" id="name">
+					<input type="text" class="form-control" placeholder="Name" id="name">
 				</div>
 						
 				<div class="form-group">
 					<label for="image">Link to photo</label>
-					<input type="text" class="form-control" placeholder ="Image URL" id="image">
+					<input type="url" class="form-control" placeholder ="Image URL" id="image">
 				</div>
 
 				<div class="form-group">
@@ -72,19 +73,29 @@
 			</div>
 		</div>
 
+<!-- modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Say hello to your new fiend!</h4>
+			</div>
+			<div class="modal-body">
+				
+			</div>
+			<div class="modal-footer">
+	        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      	</div>
+		</div>
+	</div>
 	</div>
 
-<script type="text/javascript">
-	$('.submit').on('click', function(event){
-		event.preventDefault();
+</div>
+	</div>
 
-//validate the form
-
-		var newFiend = {
-
-		}
-	});
-</script>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src ="./app/public/survey.js"></script>
 
 
 </body>
