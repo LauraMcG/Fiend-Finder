@@ -15,7 +15,6 @@ module.exports = function(app) {
 		return response.json(fiends); 
 	});
 
-
 	//===========POST
 	//route to /api/fiends handles incoming survey results
 	app.post("/api/fiends", function(request, response){
@@ -81,3 +80,4 @@ module.exports = function(app) {
 
 	});
 }
+
