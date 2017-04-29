@@ -57,7 +57,8 @@ module.exports = function(app) {
 				totalDifference = totalDifference + differencePosi;
 			}
 
-			console.log ('difference between you and ' + fiends[i].name + ' is ' + totalDifference);
+			// console.log ('difference between you and ' + fiends[i].name + ' is ' + totalDifference);
+			
 			//once the totalDifference has been calculated for a fiend, compare to yourEnemy
 			//yourEnemy is the fiend with the most difference from the user.
 			//if this is the new top enemy, update yourEnemy with their info.
@@ -69,7 +70,7 @@ module.exports = function(app) {
 					score: totalDifference
 				};
 
-				console.log('Your current top enemy is now ' + fiends[i].name);
+				// console.log('Your current top enemy is now ' + fiends[i].name);
 			}
 		}
 
