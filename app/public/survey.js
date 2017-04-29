@@ -1,10 +1,7 @@
 $('.submit').on('click', function(event){
 	event.preventDefault();
-
-	// console.log('survey submitted!');
-
-//validate the form?
-
+	
+	//putting the user info into the newFiend variable.
 	var newFiend = {
 		name: $('#name').val().trim(),
 		image: $('#image').val().trim(),
@@ -15,18 +12,23 @@ $('.submit').on('click', function(event){
 		]
 	};
 
-	// for (var i = 0; i < newFiend.answers.length; i++) {
-	// 	newFiend.answers[i] = parseInt(newFiend.answers[i]);
-	// }
-
+	//currentURL gives flexibility to the location of the post.
 	 var currentURL = window.location.origin;
 
-	$.post(currentURL + '/api/fiends', newFiend, function(error, data) {
-		if(error) {
-			console.log(error);
-		} else {
-			console.log(data);
-		}
+	$.post(currentURL + '/api/fiends', newFiend, function(data) {
+		//the post call stores the user input and calculates the match in apiRoutes.
+
+		//collecting the response match in the yourFiend variable
+		var yourFiend = {
+			name: data.name,
+			image: data.image,
+			survey: data.survey,
+			score: data.score
+		};
+		//putting information about yourFiend into the modal and displaying it.
+		$('#myModal').modal();
+		$('.modal-title').html(yourFiend.name);
+		$('.modal-body').html('<img src="' + yourFiend.image + '">');
 	});
 
 	//clearing the form after submission
@@ -36,6 +38,4 @@ $('.submit').on('click', function(event){
 	$('#q2').val();
 	$('#q3 ').val();
 
-//this will initiate the modal dialogue
-$('#myModal').modal();
 });

@@ -19,9 +19,6 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 require('./app/routing/htmlRoutes')(app);
 require('./app/routing/apiRoutes')(app);
 
-//any necessary variables for collecting data will go here
-
-
 //app activiation confirmation
 app.listen(port, function() {
 	console.log('app listening on port ' + port);
