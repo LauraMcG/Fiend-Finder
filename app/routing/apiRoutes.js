@@ -38,15 +38,15 @@ module.exports = function(app) {
 			for (var j = 0; j < newFiend.survey.length; j++) {
 				//finding the difference between each answer
 				var difference = Number(newFiend.survey[j]) - Number(fiends[i].survey[j]);
-				//getting the absolute value (Math.abs was giving me problems -- )
+				//getting the absolute value (Math.abs was giving me problems)
 				differencePosi = -difference>0 ? -difference : difference;
 				totalDifference = totalDifference + differencePosi;
-
-				console.log(totalDifference);
 			}
+			// console.log(fiends[i].name + " difference is " + totalDifference);
 
-			console.log(fiends[i].name + " difference is " + totalDifference);
-
+			//once the totalDifference has been calculated for a fiend, compare to the current top enemy (yourEnemy)
+			//yourEnemy is the fiend with the most difference from the user.
+			//if this is the new top enemy, update yourEnemy with their info.
 			if (totalDifference > yourEnemy.score) {
 				yourEnemy.name = fiends[i].name;
 				yourEnemy.image = fiends[i].image;
@@ -55,12 +55,7 @@ module.exports = function(app) {
 
 				console.log('Your enemy is now ' + yourEnemy.name);
 			}
-
-
 		}
-
-
-
 
 		fiends.push(newFiend);
 		// console.log(newFiend);
@@ -68,8 +63,12 @@ module.exports = function(app) {
 		// add the updated fiend array to the json file
 		var fiendsArrayJSON = JSON.stringify(fiends);
 		fs.writeFile('fiends.json', fiendsArrayJSON, 'utf8', 'callback');
-
 		console.log('fiend added!');
+
+		//sending yourEnemy as a response to the API query
+		response.setHeader('Content-Type', 'application/json');
+		response.send(JSON.stringify(yourEnemy));
+
 
 	});
 	//save user responses to the survey as an array of objects.

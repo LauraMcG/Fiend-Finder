@@ -25,7 +25,7 @@ $('.submit').on('click', function(event){
 		if(error) {
 			console.log(error);
 		} else {
-			
+			console.log(data);
 		}
 	});
 
