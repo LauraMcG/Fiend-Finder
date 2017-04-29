@@ -1,29 +1,20 @@
 var express = require('express');
 var path = require('path');
 
-var router = express.Router();
+module.exports = function(app) {
 
-var success = 'htmlRoutes successfully connected!';
-
-//middle ware
-router.use(function timeLog(req, res, next) {
-	// console.log('Time: ', Date.now());
-  	next();
-});
-
-//USE to home.html -- displays homepage
-router.use('/', function(request, response) {
+//GET to home.html -- displays homepage
+app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname, "../public/home.html"));
 });
 
+app.use('/app/public/survey.js', function(request, response) {
+	response.sendFile(path.join(__dirname, "../public/survey.js"))
+});
+
 //GET to /survey -- displays survey page
-router.get("/survey", function(request, response) {
+app.get("/survey", function(request, response) {
   response.sendFile(path.join(__dirname, "../public/survey.html"));
 });
 
-module.exports = router;
-
-
-
-
-
+}
