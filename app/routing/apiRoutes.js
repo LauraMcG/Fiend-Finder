@@ -2,7 +2,6 @@
 var express = require('express');
 var path = require('path');
 var fs = require('fs');
-
 //pulling array for JSON data
 var fiends = require('../data/fiends.js');
 
@@ -17,11 +16,48 @@ module.exports = function(app) {
 	//POST route to /api/fiends handles incoming survey results
 
 	app.post("/api/fiends", function(request, response){
+		//yourEnemy will store the least compatible ("best") match for the user.
+		//the score tracks the difference to be compared throughout all results.
+		var yourEnemy = {
+			name: null,
+			image: null,
+			survey: [],
+			score: 0
+		};
+		// this pulls the entered data into  a variable for use throughout the post call.
 		var newFiend = request.body;
-		
-		
-		
+		var totalDifference = 0;
 
+
+		//CALCULATING THE 'MATCH'
+		//first, a loop is called to go through each object in Fiends.
+		//then another loop compares the user's survey response to those already stored.
+		//in other words, for each fiend, compare the results for each question.
+		for (var i = 0; i < fiends.length; i++) {
+
+			for (var j = 0; j < newFiend.survey.length; j++) {
+				//finding the difference between each answer
+				var difference = Number(newFiend.survey[j]) - Number(fiends[i].survey[j]);
+				//getting the absolute value (Math.abs was giving me problems -- )
+				differencePosi = -difference>0 ? -difference : difference;
+				totalDifference = totalDifference + differencePosi;
+
+				console.log(totalDifference);
+			}
+
+			console.log(fiends[i].name + " difference is " + totalDifference);
+
+			if (totalDifference > yourEnemy.score) {
+				yourEnemy.name = fiends[i].name;
+				yourEnemy.image = fiends[i].image;
+				yourEnemy.survey = fiends[i].survey;
+				yourEnemy.score = totalDifference;
+
+				console.log('Your enemy is now ' + yourEnemy.name);
+			}
+
+
+		}
 
 
 
@@ -29,6 +65,7 @@ module.exports = function(app) {
 		fiends.push(newFiend);
 		// console.log(newFiend);
 
+		// add the updated fiend array to the json file
 		var fiendsArrayJSON = JSON.stringify(fiends);
 		fs.writeFile('fiends.json', fiendsArrayJSON, 'utf8', 'callback');
 

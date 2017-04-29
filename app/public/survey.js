@@ -8,16 +8,12 @@ $('.submit').on('click', function(event){
 	var newFiend = {
 		name: $('#name').val().trim(),
 		image: $('#image').val().trim(),
-		answers: [
+		survey: [
 		$('#q1').val(),
 		$('#q2').val(),
 		$('#q3').val(),
 		]
 	};
-
-	for (var i = 0; i < fiends.length; i++) {
-		console.log(fiends[i]);
-	}
 
 	// for (var i = 0; i < newFiend.answers.length; i++) {
 	// 	newFiend.answers[i] = parseInt(newFiend.answers[i]);
