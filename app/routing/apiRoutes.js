@@ -55,6 +55,7 @@ module.exports = function(app) {
 				//getting the absolute value (Math.abs was giving me problems)
 				differencePosi = -difference>0 ? -difference : difference;
 				totalDifference = totalDifference + differencePosi;
+
 			}
 
 			// console.log ('difference between you and ' + fiends[i].name + ' is ' + totalDifference);
