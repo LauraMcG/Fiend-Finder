@@ -7,7 +7,7 @@ var fs = require('fs');
 
 //--initiating server
 var app = express();
-var port = process.env.PORT || 8080;;
+var port = process.env.PORT || 8080;
 
 //--initializing bodyParser
 app.use(bodyParser.json());
